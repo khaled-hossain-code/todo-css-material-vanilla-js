@@ -10,6 +10,7 @@ loadEventListeners();
 
 //Load all event listeners
 function loadEventListeners() {
+  document.addEventListener('DOMContentLoaded', loadTask);
   form.addEventListener("submit", addTask);
   taskList.addEventListener("click", removeTask);
   clearBtn.addEventListener('click', removeAll);
@@ -48,6 +49,7 @@ function createTaskAndAppend (task) {
   let link = document.createElement("a");
   link.className = "delete-item secondary-content";
   link.innerHTML = `<icon class="fa fa-times"></i>`;
+  link.style.cursor = "pointer";
   li.appendChild(link);
 
   taskList.appendChild(li);
@@ -111,5 +113,3 @@ function filterTasks(e) {
     }
   })
 }
-
-loadTask();
